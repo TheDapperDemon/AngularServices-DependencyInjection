@@ -4,10 +4,9 @@ import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { AccountComponent } from './account/account.component';
 import { NewAccountComponent } from './new-account/new-account.component';
-import { AccountService } from './accounts.service';
-import { LoggingService } from './logging.service';
 import { ActiveUsersComponent } from './active-users/active-users.component';
 import { InactiveUsersComponent } from './inactive-users/inactive-users.component';
+import { CounterService } from './counter.service';
 
 @NgModule({
   declarations: [
@@ -22,9 +21,7 @@ import { InactiveUsersComponent } from './inactive-users/inactive-users.componen
     FormsModule,
   ],
   bootstrap: [AppComponent],
-  providers: [AccountService, LoggingService]
+  providers: [CounterService]
 })
 
-export class AppModule { 
-
-}
+export class AppModule { }

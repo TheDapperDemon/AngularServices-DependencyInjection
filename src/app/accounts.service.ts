@@ -20,14 +20,11 @@ export class AccountService {
         ];
         statusUpdated = new EventEmitter<string>();
 
-        constructor(private loggingService: LoggingService){
-
-        }
+        constructor(private loggingService: LoggingService){ }
 
         addedAccount(name: string, status: string) {
         this.accounts.push({name: name, status: status});
         }
-
         updatedStatus(id: number, status: string) {
         this.accounts[id].status = status;
         }

@@ -17,6 +17,5 @@ export class NewAccountComponent {
       );
   }
   onCreateAccount(accountName: string, accountStatus: string) {
-
    }
 }
