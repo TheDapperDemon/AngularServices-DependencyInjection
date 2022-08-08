@@ -1,9 +1,6 @@
-import { 
-  EventEmitter, 
-  Component, 
-  Output 
-} from '@angular/core';
-
+import { Component, } from '@angular/core';
+import { AccountService } from '../accounts.service';
+import { LoggingService } from '../logging.service'
 
 @Component({
   selector: 'app-new-account',
@@ -12,14 +9,14 @@ import {
 })
 
 export class NewAccountComponent {
-  @Output() accountAdded = new EventEmitter<{name: string, status: string}>();
 
-  onCreateAccount(accountName: string, accountStatus: string) {
-    this.accountAdded.emit({
-      name: accountName,
-      status: accountStatus
-    });
-
-    console.log('A server status changed, new status: ' + accountStatus);
+  constructor(private loggingService: LoggingService,
+    private accountsService: AccountService){
+      this.accountsService.statusUpdated.subscribe(
+        (status: string) => alert('New Status: ' + status)
+      );
   }
+  onCreateAccount(accountName: string, accountStatus: string) {
+
+   }
 }
